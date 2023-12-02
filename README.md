@@ -1,25 +1,3 @@
-<a href="https://github.com/bezhansalleh/filament-shield" class="filament-hidden">
-<img style="width: 100%; max-width: 100%;" alt="filament-shield-art" src="https://user-images.githubusercontent.com/10007504/148662315-35d4bd74-fc1c-4f8c-8c02-689309b414b0.png" >
-</a>
-
-<p align="center" class="flex items-center justify-center">
-    <a href="https://filamentadmin.com/docs/2.x/admin/installation">
-        <img alt="FILAMENT 8.x" src="https://img.shields.io/badge/FILAMENT-3.x-EBB304?style=for-the-badge">
-    </a>
-    <a href="https://packagist.org/packages/bezhansalleh/filament-shield">
-        <img alt="Packagist" src="https://img.shields.io/packagist/v/bezhansalleh/filament-shield.svg?style=for-the-badge&logo=packagist">
-    </a>
-    <a href="https://github.com/bezhansalleh/filament-shield/actions?query=workflow%3Arun-tests+branch%3A3.x">
-        <img alt="Tests Passing" src="https://img.shields.io/github/actions/workflow/status/bezhansalleh/filament-shield/run-tests.yml?style=for-the-badge&logo=github&label=tests" class="filament-hidden">
-    </a>
-    <a href="https://github.com/bezhansalleh/filament-shield/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3A3.x" class="filament-hidden">
-        <img alt="Code Style Passing" src="https://img.shields.io/github/actions/workflow/status/bezhansalleh/filament-shield/laravel-pint.yml?style=for-the-badge&logo=github&label=code%20style">
-    </a>
-
-<a href="https://packagist.org/packages/bezhansalleh/filament-shield">
-    <img alt="Downloads" src="https://img.shields.io/packagist/dt/bezhansalleh/filament-shield.svg?style=for-the-badge" >
-    </a>
-</p>
 
 # Shield
 
@@ -31,51 +9,11 @@ The easiest and most intuitive way to add access management to your Filament Adm
 
 
 > [!NOTE] 
-> For **Filament 2.x** use **[2.x](https://github.com/bezhanSalleh/filament-shield/tree/2.x)** branch
+> For **Filament 2.x** 
 
 > [!IMPORTANT]
 > Prior to `v3.1.0` Shield supported [spatie/laravel-permission](https://packagist.org/packages/spatie/laravel-permission):`^5.0` and now it supports version `^6.0`. Which has some breaking changes around migrations. If you are upgrading from a version prior to `v3.1.0` please make sure to remove the old migration file and republish the new one.
 
-## Installation
-
-1. Install the package via composer:
-
-```bash
-composer require bezhansalleh/filament-shield
-```
-
-2. Add the `Spatie\Permission\Traits\HasRoles` trait to your User model(s):
-
-```php
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Permission\Traits\HasRoles;
-
-class User extends Authenticatable
-{
-    use HasRoles;
-
-    // ...
-}
-```
-3. Publish the `config` file then setup your configuration:
-```bash
-php artisan vendor:publish --tag=filament-shield-config
-```
-4. Register the plugin for the Filament Panels you want
-```php
-public function panel(Panel $panel): Panel
-{
-    return $panel
-        ->plugins([
-            \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()
-        ]);
-}
-```
-5. Now run the following command to install shield:
-```bash
-php artisan shield:install
-```
-Follow the prompts and enjoy!
 
 ## Filament Panels
 If you want to enable `Shield` for more than one panel then you need to register the plugin for each panel as mentioned above.
